@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="The Guide for making selftrips" />
+    <meta name="keywords" content="MVC, ASP.5, Entity Framework, C#, AngularJS" />
+    <meta name="author" content="Olga Ermolenko" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/united/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <!-- Body Wrapper -->
+    <div class="wrapper">
+        <div class="header">
+            <div class="header-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4"></div>
+                        <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                   <a id="registerPage" href="/Account/Register" class="btn-link">Register</a>
+                                    <!-- <button class="btn btn-success" id="registerPage">Register</button>-->
+                                </li>
+                                <li>
+                                    <a id="loginPage" href="/Account/Login" class="btn-link">Log in</a>
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            @RenderBody()
+        </div>
+
+    </div>
+    <div id="footer">
+        <p class="text-primary"> &copy; 2016 Magicbell Ltd.</p>
+    </div>
+
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
