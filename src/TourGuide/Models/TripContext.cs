@@ -8,7 +8,21 @@ namespace TourGuide.Models
 {
     public class TripContext : DbContext
     {
-        public DbSet<Route> Routes { get; set; }
+        public TripContext()
+        {
+            Database.EnsureCreated();
+        }
+        
         public DbSet<Point> Points { get; set; }
+        public DbSet<Route> Routes { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var connection = Startup.Configuration["Data:TripContextConnection"];
+
+            optionsBuilder.UseSqlServer(connection);
+
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

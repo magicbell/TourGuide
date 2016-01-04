@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TourGuide.Models
 {
     public class Route
     {
+        public Route()
+        {
+            this.Points = new HashSet<Point>();
+        }
+
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Created { get; set; }
@@ -13,6 +20,6 @@ namespace TourGuide.Models
         public DateTime StartDate { get; set; }
         public DateTime EndTime { get; set; }
 
-        public ICollection<Point> Points { get; set; }
+        public virtual ICollection<Point> Points { get; set; }
     }
 }

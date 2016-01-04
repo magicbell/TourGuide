@@ -12,18 +12,20 @@ namespace TourGuide.Controllers
 {
     public class HomeController : Controller
     {
-        private TripContext _context;
+        
+        private ITripRepository _repository;
 
-        public HomeController(TripContext context)
+        public HomeController(ITripRepository repository)
         {
-            _context = context;
+
+            _repository = repository;
         }
 
         // GET: /<controller>/
         public IActionResult Index()
         {
-           // var routes = _context.Routes.OrderBy(t => t.Name).ToList();
-            return View();
+            var routes = _repository.GetAllRoutesWithPoints();
+            return View(routes);
         }
     }
 }

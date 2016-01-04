@@ -1,8 +1,8 @@
-﻿@{
+﻿@model IEnumerable<TourGuide.Models.Route>
+@{
     ViewBag.Title = "TourGuide.com";
 }
 
-<div>
     <!-- Этот сайт поможет вам запланировать тур осмотра достопримечательностей вашего путешествия,
          а также с помощью мобильного приложения отследить свое месторасположение и прослушать информацию о достопримечательностях,
          находящихся на пути вашего следования.
@@ -12,4 +12,13 @@
     you can track your location and listen information about sightseeing on the way.</p>
     <p>You can choose a ready route or create your own
      and share it.</p>
-</div>
+
+@foreach(var route in Model)
+{
+    <ul>@route.Name</ul>
+    @foreach (var point in route.Points)
+    { 
+        <li>@point.Name</li>
+    }
+}
+

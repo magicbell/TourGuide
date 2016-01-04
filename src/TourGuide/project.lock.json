@@ -3,6 +3,26 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -82,6 +102,28 @@
         },
         "runtime": {
           "lib/net451/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.ComponentModel.DataAnnotations",
+          "System.Core",
+          "System.IO",
+          "System.Text.Encoding",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -1275,6 +1317,44 @@
           "lib/net451/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -1373,6 +1453,56 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -1621,6 +1751,21 @@
       }
     },
     "DNXCore,Version=v5.0": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1689,6 +1834,19 @@
         },
         "runtime": {
           "lib/dotnet5.4/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "System.ComponentModel.Annotations": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -2744,6 +2902,40 @@
           "lib/dotnet5.4/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -2843,6 +3035,62 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Threading": "4.0.11-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -3875,6 +4123,26 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3954,6 +4222,28 @@
         },
         "runtime": {
           "lib/net451/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.ComponentModel.DataAnnotations",
+          "System.Core",
+          "System.IO",
+          "System.Text.Encoding",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -5150,6 +5440,44 @@
           "lib/net451/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5248,6 +5576,56 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -5496,6 +5874,26 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -5575,6 +5973,28 @@
         },
         "runtime": {
           "lib/net451/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.ComponentModel.DataAnnotations",
+          "System.Core",
+          "System.IO",
+          "System.Text.Encoding",
+          "System.Threading.Tasks"
+        ],
+        "compile": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -6771,6 +7191,44 @@
           "lib/net451/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "frameworkAssemblies": [
@@ -6869,6 +7327,56 @@
         },
         "runtime": {
           "lib/net451/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections.Concurrent",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Core"
+        ],
+        "compile": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -7117,6 +7625,21 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -7185,6 +7708,19 @@
         },
         "runtime": {
           "lib/dotnet5.4/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "System.ComponentModel.Annotations": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -8243,6 +8779,40 @@
           "lib/dotnet5.4/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -8342,6 +8912,62 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Threading": "4.0.11-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -9871,6 +10497,21 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
+      "EntityFramework.Commands/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
+          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Commands.dll": {}
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -9939,6 +10580,19 @@
         },
         "runtime": {
           "lib/dotnet5.4/EntityFramework.Relational.dll": {}
+        }
+      },
+      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "System.ComponentModel.Annotations": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -10997,6 +11651,40 @@
           "lib/dotnet5.4/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
+          "System.Console": "4.0.0-beta-23516",
+          "System.IO": "4.0.11-beta-23516",
+          "System.Reflection.Extensions": "4.0.1-beta-23516",
+          "System.Runtime": "4.0.21-beta-23516",
+          "System.Threading": "4.0.11-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final",
+          "System.Collections": "4.0.11-beta-23516",
+          "System.Globalization": "4.0.11-beta-23516",
+          "System.Linq": "4.0.1-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll": {}
+        }
+      },
       "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -11096,6 +11784,62 @@
         },
         "runtime": {
           "lib/dotnet5.4/Microsoft.Extensions.WebEncoders.Core.dll": {}
+        }
+      },
+      "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Diagnostics.Debug": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Linq.Expressions": "4.0.11-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Resources.ResourceManager": "4.0.1-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Framework.DependencyInjection.Abstractions": "1.0.0-beta8",
+          "Microsoft.Framework.Logging.Abstractions": "1.0.0-beta8",
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.ComponentModel": "4.0.1-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Threading": "4.0.11-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.dll": {}
+        }
+      },
+      "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.0.11-beta-23409",
+          "System.Collections.Concurrent": "4.0.11-beta-23409",
+          "System.Globalization": "4.0.11-beta-23409",
+          "System.Linq": "4.0.1-beta-23409",
+          "System.Reflection": "4.1.0-beta-23225",
+          "System.Runtime": "4.0.21-beta-23409",
+          "System.Runtime.Extensions": "4.0.11-beta-23409",
+          "System.Runtime.InteropServices": "4.0.21-beta-23409"
+        },
+        "compile": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -12626,6 +13370,33 @@
     }
   },
   "libraries": {
+    "EntityFramework.Commands/7.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "+wa2VWX3/vDkOpeCeIotMevqpIISimGqeYNTGYRLRhv+8HzsCLeymLzmmYpjav6zYQVvuJiJodapQvijAIfRrA==",
+      "files": [
+        "app/ef",
+        "app/ef.cmd",
+        "app/project.json",
+        "build/netcore50/EntityFramework.Commands.props",
+        "EntityFramework.Commands.7.0.0-rc1-final.nupkg",
+        "EntityFramework.Commands.7.0.0-rc1-final.nupkg.sha512",
+        "EntityFramework.Commands.nuspec",
+        "lib/dnx451/EntityFramework.Commands.dll",
+        "lib/dnx451/EntityFramework.Commands.xml",
+        "lib/dnxcore50/EntityFramework.Commands.dll",
+        "lib/dnxcore50/EntityFramework.Commands.xml",
+        "lib/net451/EntityFramework.Commands.dll",
+        "lib/net451/EntityFramework.Commands.xml",
+        "lib/netcore50/_._",
+        "tools/about_EntityFramework.help.txt",
+        "tools/EntityFramework.psd1",
+        "tools/EntityFramework.psm1",
+        "tools/init.ps1",
+        "tools/install.ps1",
+        "tools/OperationHandlers.cs"
+      ]
+    },
     "EntityFramework.Core/7.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -12674,6 +13445,24 @@
         "lib/net451/EntityFramework.Relational.xml",
         "lib/netcore50/EntityFramework.Relational.dll",
         "lib/netcore50/EntityFramework.Relational.xml"
+      ]
+    },
+    "EntityFramework.Relational.Design/7.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sXAqOxpHmbqOELC21vAzKlsjqgNCrk3jEjyJxjGnn1+j4hazxiqgSBTl8ZofqYzLO6ias9WfeXJy8HcXOl7waw==",
+      "files": [
+        "build/netcore50/EntityFramework.Relational.Design.props",
+        "EntityFramework.Relational.Design.7.0.0-rc1-final.nupkg",
+        "EntityFramework.Relational.Design.7.0.0-rc1-final.nupkg.sha512",
+        "EntityFramework.Relational.Design.nuspec",
+        "lib/dnx451/EntityFramework.Relational.Design.dll",
+        "lib/dnx451/EntityFramework.Relational.Design.xml",
+        "lib/dnxcore50/EntityFramework.Relational.Design.dll",
+        "lib/dnxcore50/EntityFramework.Relational.Design.xml",
+        "lib/net451/EntityFramework.Relational.Design.dll",
+        "lib/net451/EntityFramework.Relational.Design.xml",
+        "lib/netcore50/_._"
       ]
     },
     "Ix-Async/1.2.5": {
@@ -13649,6 +14438,38 @@
         "Microsoft.Extensions.Logging.Abstractions.nuspec"
       ]
     },
+    "Microsoft.Extensions.Logging.Console/1.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "zUklTASL2my5gp291VZuK6YMLit9ECmU7gDNN/gDwqO3EB1CDyKQtGQBtABNNgJw/0In8mFFNbsiGYhZ8xFUJA==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.dll",
+        "lib/dotnet5.4/Microsoft.Extensions.Logging.Console.xml",
+        "lib/net451/Microsoft.Extensions.Logging.Console.dll",
+        "lib/net451/Microsoft.Extensions.Logging.Console.xml",
+        "lib/netcore50/Microsoft.Extensions.Logging.Console.dll",
+        "lib/netcore50/Microsoft.Extensions.Logging.Console.xml",
+        "Microsoft.Extensions.Logging.Console.1.0.0-rc1-final.nupkg",
+        "Microsoft.Extensions.Logging.Console.1.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.Extensions.Logging.Console.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Debug/1.0.0-rc1-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "MBBASQ1nP6TeQndLQIr2iBYicVwZB64T14cnsvTuiWsV/aj5nFtR23hLYOJL2JJkrkU25/1/knxDpfH+0vG96g==",
+      "files": [
+        "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.dll",
+        "lib/dotnet5.4/Microsoft.Extensions.Logging.Debug.xml",
+        "lib/net451/Microsoft.Extensions.Logging.Debug.dll",
+        "lib/net451/Microsoft.Extensions.Logging.Debug.xml",
+        "lib/netcore50/Microsoft.Extensions.Logging.Debug.dll",
+        "lib/netcore50/Microsoft.Extensions.Logging.Debug.xml",
+        "Microsoft.Extensions.Logging.Debug.1.0.0-rc1-final.nupkg",
+        "Microsoft.Extensions.Logging.Debug.1.0.0-rc1-final.nupkg.sha512",
+        "Microsoft.Extensions.Logging.Debug.nuspec"
+      ]
+    },
     "Microsoft.Extensions.MemoryPool/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -13735,6 +14556,60 @@
         "Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final.nupkg",
         "Microsoft.Extensions.WebEncoders.Core.1.0.0-rc1-final.nupkg.sha512",
         "Microsoft.Extensions.WebEncoders.Core.nuspec"
+      ]
+    },
+    "Microsoft.Framework.DependencyInjection.Abstractions/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "7WL9hy+7bYDyBtIrrW5tw57dChBcizjSyuD0p5pVkay+gSseLqvAk72a4KldMmRgH//7t74d/YVrTvLhw83b7w==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dnx451/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/dotnet/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.dll",
+        "lib/net45/Microsoft.Framework.DependencyInjection.Abstractions.xml",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.DependencyInjection.Abstractions.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.DependencyInjection.Abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Framework.Logging/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "4PpVGirfXovwJjlLfgvM3kKgXUSSnOhqwlIFxAl6v1yTEVrrYrAxVmZ2YVz7EzTDUaeRpElm4AgCoyqHcZty4A==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Logging.dll",
+        "lib/dnx451/Microsoft.Framework.Logging.xml",
+        "lib/dnxcore50/Microsoft.Framework.Logging.dll",
+        "lib/dnxcore50/Microsoft.Framework.Logging.xml",
+        "lib/dotnet/Microsoft.Framework.Logging.dll",
+        "lib/dotnet/Microsoft.Framework.Logging.xml",
+        "lib/net45/Microsoft.Framework.Logging.dll",
+        "lib/net45/Microsoft.Framework.Logging.xml",
+        "Microsoft.Framework.Logging.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.Logging.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.Logging.nuspec"
+      ]
+    },
+    "Microsoft.Framework.Logging.Abstractions/1.0.0-beta8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "m0NE8yhLNYlHlXfVRdfkwv+aR1a3oL06jf4sXejQKTnhE3hg6Biy7a3/W19ao6IaSyk640ARxrrt2jBEJzeUjg==",
+      "files": [
+        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dnx451/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/dotnet/Microsoft.Framework.Logging.Abstractions.xml",
+        "lib/net45/Microsoft.Framework.Logging.Abstractions.dll",
+        "lib/net45/Microsoft.Framework.Logging.Abstractions.xml",
+        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg",
+        "Microsoft.Framework.Logging.Abstractions.1.0.0-beta8.nupkg.sha512",
+        "Microsoft.Framework.Logging.Abstractions.nuspec"
       ]
     },
     "Microsoft.Net.Http.Headers/1.0.0-rc1-final": {
@@ -17842,6 +18717,7 @@
     "": [
       "EntityFramework.Core >= 7.0.0-rc1-final",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
+      "EntityFramework.Commands >= 7.0.0-rc1-final",
       "Microsoft.AspNet.IISPlatformHandler >= 1.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
       "Microsoft.AspNet.Mvc.ViewFeatures >= 6.0.0-rc1-final",
@@ -17849,7 +18725,10 @@
       "Microsoft.AspNet.StaticFiles >= 1.0.0-rc1-final",
       "Microsoft.Dnx.Runtime.Abstractions >= 1.0.0-beta8",
       "Microsoft.Extensions.Configuration >= 1.0.0-rc1-final",
-      "Microsoft.Extensions.PlatformAbstractions >= 1.0.0-rc1-final"
+      "Microsoft.Extensions.PlatformAbstractions >= 1.0.0-rc1-final",
+      "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
+      "Microsoft.Framework.Logging >= 1.0.0-beta8",
+      "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []

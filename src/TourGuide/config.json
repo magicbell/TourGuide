@@ -1,3 +1,9 @@
 ﻿{
+  "AppSettings": {
+    "SiteEmailAddress": "info@tourguide.com"
+  },
+  "Data": {
+    "TripContextConnection": "Server=OERM;Database=TripsDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
 
 }

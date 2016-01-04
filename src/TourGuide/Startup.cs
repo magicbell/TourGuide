@@ -10,12 +10,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 using TourGuide.Models;
+using Microsoft.Extensions.Logging;
 
 namespace TourGuide
 {
     public class Startup
     {
-        public IConfigurationRoot Configuration { get; private set; }
+        public static IConfigurationRoot Configuration { get; private set; }
 
         public Startup(IApplicationEnvironment appEnv)
         {
@@ -31,15 +32,21 @@ namespace TourGuide
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            
+            services.AddLogging();
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TripContext>();
+
+            services.AddTransient<SeedingData>();
+            services.AddScoped<ITripRepository, TripRepository>();
         }
             
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, SeedingData seeder, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddDebug(LogLevel.Warning);
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -49,8 +56,9 @@ namespace TourGuide
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" }
                     );
-            }
-            );
+            });
+
+            seeder.EnsureSeeding();
         }
 
         // Entry point for the application.
