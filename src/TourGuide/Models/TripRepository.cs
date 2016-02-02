@@ -17,6 +17,42 @@ namespace TourGuide.Models
 
         }
 
+        public void Add(Route newRoute)
+        {
+            try {
+                _context.Add(newRoute);
+            }
+            catch(Exception)
+            { }
+        }
+
+        public void AddPointToRoute(string routeName, Point point)
+        {
+            try
+            {
+                var route = GetRouteByName(routeName);
+                // _context.Points.Add(point);
+                route.Points.Add(point);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        public IEnumerable<Point> GetAllPoints()
+        {
+            try
+            {
+                var result = _context.Points.ToList();
+                return result;
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+
         public IEnumerable<Route> GetAllRoutes()
         {
             try
@@ -42,5 +78,49 @@ namespace TourGuide.Models
                 return null;
             }
         }
+
+        //TODO
+        public IEnumerable<Point> GetPoints(int routeId)
+        {
+            try
+            {
+                var result = _context.Routes.Where(t => t.Id == routeId).Select(t => t.Points).ToList();
+                return (IEnumerable<Point>) result;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        public Route GetRouteByName(string routeName)
+        {
+            try
+            {
+
+                var result = _context.Routes.Where(t => t.Name == routeName).Include(t => t.Points).FirstOrDefault();
+                return result;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public async System.Threading.Tasks.Task<bool> SaveAll()
+        {
+            try
+            {
+                int x = await _context.SaveChangesAsync();
+                if (x > 0) return true;
+                else return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
     }
 }
