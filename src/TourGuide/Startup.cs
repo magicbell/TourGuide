@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 using TourGuide.Models;
 using Microsoft.Extensions.Logging;
+using Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Newtonsoft.Json.Serialization;
 using AutoMapper;
 using TourGuide.Controllers.Api;
@@ -44,6 +46,14 @@ namespace TourGuide
                 });
             services.AddLogging();
 
+            services.AddIdentity<TripUser, IdentityRole>(config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
+            })
+            .AddEntityFrameworkStores<TripContext>();
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<TripContext>();
@@ -55,11 +65,13 @@ namespace TourGuide
         }
             
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, SeedingData seeder, ILoggerFactory loggerFactory)
+        public async void Configure(IApplicationBuilder app, SeedingData seeder, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddDebug(LogLevel.Warning);
 
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             Mapper.Initialize(config =>
             {
@@ -76,7 +88,7 @@ namespace TourGuide
                     );
             });
 
-            seeder.EnsureSeeding();
+           await seeder.EnsureSeedingAsync();
         }
 
         // Entry point for the application.

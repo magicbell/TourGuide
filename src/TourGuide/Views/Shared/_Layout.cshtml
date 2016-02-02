@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootswatch/flatly/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
 
 </head>
 <body>
@@ -21,42 +22,76 @@
 
     <!-- Body Wrapper -->
      <div class="wrapper">
-        <div class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar navbar-default">
             <div class="navbar-header">
                 <a href="../" class="navbar-brand">TourGuide</a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a id="registerPage" href="/Home/Contact">Contact</a>
+                        </li>
+                    </ul>
+
                             <ul class="nav navbar-nav navbar-right">
+                            @if (User.Identity.IsAuthenticated)
+                            {
                                 <li>
-                                    <a id="registerPage" href="/Account/Register">Register</a>
+                                    <a id="logoutPage" asp-controller="Account" asp-action="Logout">Logout</a>
+                                </li>
+                            }
+                            else
+                            { 
+                                <li>
+                                    <a id="registerPage" asp-controller="Account" asp-action="Register">Register</a>
 
                                 </li>
                                 <li>
-                                    <a id="loginPage" href="/Account/Login">Log in</a>
+                                    <a id="loginPage" asp-controller="Account" asp-action="Login">Login</a>
 
                                 </li>
+                                }
                             </ul>
                         </div>
             </div>
 
         <div class="container">
-            <div class="sidebar" id="sidebar">
+            <nav class="sidebar navbar-inverse" id="sidebar">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h5 class="sidebar-text">Hello, @User.Identity.Name</h5>
+                }
+                <ul class="nav navbar">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="active"><a asp-controller="Home" asp-action="Routes" class="navbar-link">MyRoutes</a></li>
+                        <li><a asp-controller="Home" asp-action="NewRoute" class="navbar-link">Create new</a></li>
+                        <li><a asp-controller="Account" asp-action="Logout" class="navbar-link">Logout</a></li>
+                    }
+                </ul>
                 <div id="sidebar_contacts">
                     <div class="address">
-                        <a id="contactPage" href="/Home/Contacts">
-                            <span>
+                        <a id="contactPage" asp-controller="Home" asp-action="Contacts">
+
                                 <strong>Contacts</strong>
-                            </span>
+                           
                         </a>
                         <p>E-mail: magicbell@mail.ua</p>
                     </div>
                 </div>
-            </div>
+            </nav>
             <div class="main_container" id="main_container">
                 <div>
-                    <button id="sidebar_toggle"><<</button>
+                    <button id="sidebar_toggle" class="btn">
+                        <i class="fa fa-align-justify"></i>
+                    </button>
                 </div>
-                @RenderBody()
+                <div id="main" class="container-fluid">
+                    
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -73,6 +108,7 @@
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript" src="~/js/site.js"></script>
+    @RenderSection("Scripts", false)
 
 </body>
 </html>
