@@ -1,6 +1,7 @@
 ﻿{
   "AppSettings": {
-    "SiteEmailAddress": "info@tourguide.com"
+    "SiteEmailAddress": "info@tourguide.com",
+    "BingKey": "AiZws5nvUUtZYhOKK4p50jlZpegeQBb7GsZ6szjVptEPP-a69tpvDeomDwWJB6jc"
   },
   "Data": {
     "TripContextConnection": "Server=OERM;Database=TripsDB;Trusted_Connection=true;MultipleActiveResultSets=true;"

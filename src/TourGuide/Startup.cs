@@ -13,6 +13,11 @@ using TourGuide.Models;
 using Microsoft.Extensions.Logging;
 using Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json.Serialization;
+using AutoMapper;
+using TourGuide.Controllers.Api;
+using ViewModels;
+using TourGuide.Services;
 
 namespace TourGuide
 {
@@ -23,6 +28,7 @@ namespace TourGuide
         public Startup(IApplicationEnvironment appEnv)
         {
             var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ApplicationBasePath)
                 .AddEnvironmentVariables()
                 .AddJsonFile("config.json");
                 
@@ -33,7 +39,11 @@ namespace TourGuide
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                });
             services.AddLogging();
 
             services.AddIdentity<TripUser, IdentityRole>(config =>
@@ -48,6 +58,8 @@ namespace TourGuide
                 .AddSqlServer()
                 .AddDbContext<TripContext>();
 
+            services.AddScoped<CoordService>();
+
             services.AddTransient<SeedingData>();
             services.AddScoped<ITripRepository, TripRepository>();
         }
@@ -60,6 +72,12 @@ namespace TourGuide
             app.UseStaticFiles();
 
             app.UseIdentity();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<Route, RouteViewModel>().ReverseMap();
+                config.CreateMap<Point, PointViewModel>().ReverseMap();
+            });
 
             app.UseMvc(routes =>
             {
