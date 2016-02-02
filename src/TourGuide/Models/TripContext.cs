@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
+using Models;
 
 namespace TourGuide.Models
 {
-    public class TripContext : DbContext
+    public class TripContext : IdentityDbContext<TripUser>
     {
         public TripContext()
         {

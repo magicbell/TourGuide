@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,14 +10,27 @@ namespace TourGuide.Models
     public class SeedingData
     {
         private TripContext _context;
+        private UserManager<TripUser> _userManager;
 
-        public SeedingData(TripContext context)
+        public SeedingData(TripContext context, UserManager<TripUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        public void EnsureSeeding()
+        public async Task EnsureSeedingAsync()
         {
+            if (await _userManager.FindByNameAsync("magicbell") == null)
+            {
+                var newUser = new TripUser()
+                {
+                    //Id = "1",
+                    UserName = "magicbell",
+                    Email = "magicbell@mail.ua"
+                };
+                await _userManager.CreateAsync(newUser, "Amazing8!");
+            }
+
             if (!_context.Routes.Any())
             {
                 var newRoute = new Route()

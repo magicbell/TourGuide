@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using TourGuide.Models;
+using Microsoft.AspNet.Authorization;
+using TourGuide.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,8 +26,25 @@ namespace TourGuide.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Routes()
+        {
             var routes = _repository.GetAllRoutesWithPoints();
             return View(routes);
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel contact)
+        {
+            return View();
         }
     }
 }

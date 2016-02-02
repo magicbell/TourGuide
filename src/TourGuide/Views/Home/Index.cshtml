@@ -1,24 +1,18 @@
-﻿@model IEnumerable<TourGuide.Models.Route>
-@{
-    ViewBag.Title = "TourGuide.com";
+﻿@{
+    ViewBag.Title = "Home Page";
 }
 
-    <!-- Этот сайт поможет вам запланировать тур осмотра достопримечательностей вашего путешествия,
-         а также с помощью мобильного приложения отследить свое месторасположение и прослушать информацию о достопримечательностях,
-         находящихся на пути вашего следования.
-         Вы можете выбирать готовые маршруты, создавать свои, руководствуясь путеводителями, делиться составленными
-         маршрутами. -->
-    <p>This site will help you to plan your sightseeing tour and through mobile application
-    you can track your location and listen information about sightseeing on the way.</p>
-    <p>You can choose a ready route or create your own
-     and share it.</p>
-
-@foreach(var route in Model)
-{
-    <ul>@route.Name</ul>
-    @foreach (var point in route.Points)
-    { 
-        <li>@point.Name</li>
-    }
-}
-
+<div class="row">
+    <div class="col-md-12">
+        <h1>Welcome to TourGuide</h1>
+        <!-- Этот сайт поможет вам запланировать тур осмотра достопримечательностей вашего путешествия,
+     а также с помощью мобильного приложения отследить свое месторасположение и прослушать информацию о достопримечательностях,
+     находящихся на пути вашего следования.
+     Вы можете выбирать готовые маршруты, создавать свои, руководствуясь путеводителями, делиться составленными
+     маршрутами. -->
+        <p>This site will help you to plan your sightseeing tour and through mobile application
+            you can track your location and listen information about sightseeing on the way.</p>
+        <p>You can choose a ready route or create your own and share it.</p>
+        <a href="@Url.Action("Routes", "Home")" class="btn btn-lg btn-info">View my Routes</a>
+</div>
+</div>

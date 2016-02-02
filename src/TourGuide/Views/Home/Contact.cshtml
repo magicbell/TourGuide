@@ -1,0 +1,37 @@
+﻿@model TourGuide.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contact Us";
+}
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="row">
+    <div class="col-lg-6 col-md-offset-3">
+        <h2 class="h2_center">Contact</h2>
+        <form method="post">
+
+            <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
+            <div class="form-group-sm">
+                <label asp-for="Email" class="">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group-sm">
+                <label asp-for="Name" class="">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group-sm">
+                <label asp-for="Message" class="">Message</label>
+                <textarea cols="40" rows="4" asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-info btn-long" type="submit" value="Send Message" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,13 +1,21 @@
-﻿body {
+﻿* {
+    margin: 0;
+}
+
+html, body{
+    height:100%;
+}
+
+body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-.navbar{
-    background-image: url("/img/noise.png");
+.h2_center{
+    text-align:center;
 }
 
 .header{
-    position: relative;
+   // position: relative;
     z-index: 3;
     padding: 0 0 .4em;
     position: absolute;
@@ -19,7 +27,7 @@
 }
 
 .wrapper{
-    position: absolute;
+   // position: absolute;
     width: 100%;
    // background-color: #613F6F;
    // background-image: url("/img/noise.png");
@@ -29,7 +37,7 @@
 .sidebar:before {
     content: '';
     display: block;
-    position: absolute;
+   // position: absolute;
     top: 0;
     left: 0;
     height: 6px;
@@ -43,7 +51,7 @@
     z-index: 3;
     width: 20%;
   //  background-color: #82A83F;
-    background: transparent linear-gradient(to bottom, #82A83F 0, #7CA33A 34%, #8DB740 100%) repeat scroll 0 0;
+ //   background: transparent linear-gradient(to bottom, #82A83F 0, #7CA33A 34%, #8DB740 100%) repeat scroll 0 0;
  //   border-radius: 8px;
  //   top: 10px;
  //   left: 10px;
@@ -51,43 +59,59 @@
     overflow: hidden;
     height:100%;
     transition: left ease .45s;
+  //  background: rgb(52, 152, 219) none repeat scroll 0% 0%;
+    background-image: url("/img/noise.png");
+}
+
+.sidebar-text{
+    margin-left:15px;
+}
+
+.sidebar-toggle {
+
 }
 
 .sidebar.hidden-sidebar{
     left:-20%;
+    position:absolute;
     transition: left ease .45s;
 }
 
 .container{
-    position: absolute;
+   // position: absolute;
     z-index:2;
-    padding: 60px 0 60px;
+    //padding: 60px 0 60px;
     box-sizing: border-box;
-    margin: 0px auto;
+    margin: -20px;
     width:100%;
+    min-height: 100%;
+    margin-bottom: -120px;
+}
+
+.container::after{
+    height:60px;
 }
 
 .main_container{
-    position: relative;
+   // position: relative;
     float: left;
+    left:0;
     background: #fff;
     width: 78.2%;
     border-radius: 8px;
-    left: 10px;
     z-index: 3;
-    padding: 1.2em;
     transition: left ease .45s;
 }
 
 .main_container.hidden-sidebar{
     left:0;
-    position: absolute;
+    //position: absolute;
     width: 100%;
     transition: left ease .45s;
 }
 
 .footer{
-    position: absolute;
+  //  position: absolute;
     z-index: 1;
     padding: 19px;
     background-color: #2C3E50;
@@ -96,31 +120,57 @@
     width: 100%;
     background-image: url("/img/noise.png");
     color:white;
+    clear:both;
 }
 
 #sidebar_contacts{
     position: relative;
-    background-color: rgba(0,88,22,.3);
+  //  background-color: rgba(0,88,22,.3);
+    background-image: url("/img/noise.png");
     border: 2px double rgba(255,255,255,.5);
     border-radius: 10px;
     margin: 0 7% 2.4em;
-    padding: 1.2em .8em;
+    padding: .8em;
     text-align: center;
     color: #fff;
     font-size: 12px;
-    text-shadow: rgb(0,74,2) 0 1px 2px;
+   // text-shadow: rgb(0,74,2) 0 1px 2px;
     min-height: 30px;
 }
 
-.main::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: 0px;
+    #sidebar_contacts a {
+        color: #fff;
+        line-height: 27px;
+    }
+
+#main{
+    padding-left: 30px;
+}
+
+
+
+.btn-long{
     width: 100%;
-    height: 50px;
-    background-image: url("/img/shadow.png");
-    background-position: 0px -30px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    margin: 20px 0;
+}
+
+.social-login{
+    text-align:center;
+}
+
+.btn-facebook, .btn-twitter, .btn-vk {
+    color: white;
+    margin: 5px;
+}
+
+.btn-facebook{
+    background: #3B5998 none repeat scroll 0% 0%;
+}
+
+.btn-twitter{
+    background: #00ACED none repeat scroll 0% 0%;
+}
+
+.btn-vk{
+    background: rgb(59, 89, 152) none repeat scroll 0% 0%;
 }

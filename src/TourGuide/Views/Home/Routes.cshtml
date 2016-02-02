@@ -1,0 +1,17 @@
+﻿@model IEnumerable<TourGuide.Models.Route>
+@{
+    ViewBag.Title = "TourGuide.com";
+}
+
+
+        <h2 class="h2_center">My Routes</h2>
+
+        @foreach (var route in Model)
+        {
+            <ul>@route.Name</ul>
+            @foreach (var point in route.Points)
+            {
+                <li>@point.Name</li>
+            }
+        }
+
