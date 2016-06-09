@@ -11,10 +11,12 @@ namespace TourGuide.Controllers
     public class AccountController : Controller
     {
         private SignInManager<TripUser> _signInManager;
+        private UserManager<TripUser> _userManager;
 
-        public AccountController(SignInManager<TripUser> signInManager)
+        public AccountController(SignInManager<TripUser> signInManager, UserManager<TripUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         // GET: /<controller>/
@@ -54,6 +56,40 @@ namespace TourGuide.Controllers
                 await _signInManager.SignOutAsync();
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] RegisterViewModel vm)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var newUser = new TripUser { UserName = vm.UserName, Email = vm.Email };
+
+                    IdentityResult idResult = await _userManager.CreateAsync(newUser, vm.Password);
+
+                    if (idResult.Errors != null)
+                    {
+                        ModelState.AddModelError("", idResult.Errors.ToString());
+                        return View();
+                    }
+
+                    return RedirectToAction("Routes", "Home");
+                }
+                catch (System.Exception)
+                {
+
+                    throw;
+                }
+            }
+            ModelState.AddModelError("", "Registration isn't complete");
+            return View();
         }
     }
 }

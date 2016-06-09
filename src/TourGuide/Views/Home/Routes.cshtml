@@ -1,17 +1,23 @@
-﻿@model IEnumerable<TourGuide.Models.Route>
-@{
+﻿@{
     ViewBag.Title = "TourGuide.com";
 }
 
+<div ng-app="routesApp" class="row">
 
-        <h2 class="h2_center">My Routes</h2>
+    <div ng-view></div>
+    
+</div>
 
-        @foreach (var route in Model)
-        {
-            <ul>@route.Name</ul>
-            @foreach (var point in route.Points)
-            {
-                <li>@point.Name</li>
-            }
-        }
-
+@section Scripts {
+    <script src="~/lib/underscore/underscore-min.js"></script>
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular-route/angular-route.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="~/lib/gmaps/gmaps.min.js"></script>
+    <script src="~/lib/travelmap/travelmap.min.js"></script>
+    <script src="~/js/routesController.js"></script>
+    <script src="~/js/routeEditorController.js"></script>
+    <script src="~/js/app-routes.js"></script>
+    <script src="~/js/simpleControls.js"></script>
+    
+}

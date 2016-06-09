@@ -23,8 +23,13 @@
     <!-- Body Wrapper -->
      <div class="wrapper">
         <div class="navbar navbar-default">
-            <div class="navbar-header">
-                <a href="../" class="navbar-brand">TourGuide</a>
+            <div class="container_">
+                <div class="navbar-header">
+                        <a id="sidebar-toggle" class="btn btn-primary navbar-left">
+                            <i class="fa fa-align-justify"></i>
+                        </a>
+
+                        <a href="../" class="navbar-brand">TourGuide</a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav">
@@ -54,9 +59,33 @@
                             </ul>
                         </div>
             </div>
+        </div>
 
         <div class="container">
             <nav class="sidebar navbar-inverse" id="sidebar">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Home" asp-action="Routes" id="sidebar-routes" title="View my routes" class="btn btn-success">
+                    <i class="fa fa-database"></i>
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Account" asp-action="Login" id="sidebar-sign-in" title="Sign in" class="btn btn-success">
+                    <i class="fa fa-sign-in"></i>
+                </a>
+            }
+            <a asp-controller="Home" asp-action="Search" id="sidebar-search" title="Search the route" class="btn btn-success">
+                <i class="fa fa-search"></i>
+            </a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Account" asp-action="Logout" id="sidebar-sign-out" title="Sign out" class="btn btn-success">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            }
+            </nav>
+            @*<nav class="sidebar navbar-inverse" id="sidebar">
                 @if (User.Identity.IsAuthenticated)
                 {
                     <h5 class="sidebar-text">Hello, @User.Identity.Name</h5>
@@ -69,7 +98,7 @@
                         <li><a asp-controller="Account" asp-action="Logout" class="navbar-link">Logout</a></li>
                     }
                 </ul>
-                <div id="sidebar_contacts">
+                @*<div id="sidebar_contacts">
                     <div class="address">
                         <a id="contactPage" asp-controller="Home" asp-action="Contacts">
 
@@ -79,13 +108,9 @@
                         <p>E-mail: magicbell@mail.ua</p>
                     </div>
                 </div>
-            </nav>
+            </nav>*@
             <div class="main_container" id="main_container">
-                <div>
-                    <button id="sidebar_toggle" class="btn">
-                        <i class="fa fa-align-justify"></i>
-                    </button>
-                </div>
+                
                 <div id="main" class="container-fluid">
                     
                     <div>
@@ -104,8 +129,9 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
 
     <script type="text/javascript" src="~/js/site.js"></script>
     @RenderSection("Scripts", false)

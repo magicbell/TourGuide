@@ -1,0 +1,33 @@
+﻿<div>
+    <div>
+        <label class="text-info">My Routes</label>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="text-danger" ng-show="errorMessage">{{errorMessage}}</div>
+        <wait-cursor ng-show="isBusy"></wait-cursor>
+
+        <form novalidate name="newRouteForm" ng-submit="addRoute()">
+            <div class="form-group-sm">
+                <label for="name">New route</label>
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" ng-model="newRoute.name" required ng-minlength="5" />
+                <span ng-show="newRouteForm.name.$error.required" class="text-warning">Name is required</span>
+                <span ng-show="newRouteForm.name.$error.minlength" class="text-warning">Name must be at list 5 characters</span>
+            </div>
+            <div class="form-group-sm">
+                <input type="submit" class="btn btn-info btn-sm" value="Add" ng-disabled="newRouteForm.$invalid" />
+            </div>
+        </form>
+        <h3 class="text-center">My Routes</h3>
+        <table class="table table-responsive table-striped">
+            <tr ng-repeat="route in routes">
+                <td>{{ route.name }}</td>
+                <td>{{ route.created | date : 'MM-dd-yyyy' }}</td>
+                <td>
+                    <a class="btn btn-xs btn-primary" href="#/editor/{{route.name}}"><i class="fa fa-edit"></i></a>
+                    <button class="btn btn-xs btn-danger" ng-click="deleteRoute(route.id)"><i class="fa fa-remove"></i></button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    </div>

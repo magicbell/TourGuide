@@ -59,6 +59,7 @@ namespace TourGuide
                 .AddDbContext<TripContext>();
 
             services.AddScoped<CoordService>();
+            services.AddScoped<WikiLoadService>();
 
             services.AddTransient<SeedingData>();
             services.AddScoped<ITripRepository, TripRepository>();

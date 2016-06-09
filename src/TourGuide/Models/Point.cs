@@ -21,6 +21,7 @@ namespace TourGuide.Models
         public double Latitude { get; set; }
         public string Description { get; set; }
         public DateTime Arrival { get; set; }
+        public int OrdNumber { get; set; }
 
       //  public virtual ICollection<Route> Routes { get; set; }
     }

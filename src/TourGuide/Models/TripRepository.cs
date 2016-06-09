@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Framework.Logging;
 
 namespace TourGuide.Models
 {
@@ -31,8 +30,40 @@ namespace TourGuide.Models
             try
             {
                 var route = GetRouteByName(routeName);
-                // _context.Points.Add(point);
+                if (route.Points.Count > 0)
+                    point.OrdNumber = route.Points.Max(t => t.OrdNumber) + 1;
+                else
+                    point.OrdNumber = 0;
                 route.Points.Add(point);
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        public void DeletePointFromRoute(string routeName, int pointId)
+        {
+            try
+            {
+                _context.Points.Remove(_context.Points.Where(t => t.Id == pointId).First());
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+        }
+
+        public void DeleteRoute(int routeId)
+        {
+            try
+            {
+                _context.Routes.Where(t => t.Id == routeId)
+                    .Include(t => t.Points).First().Points.ToList()
+                    .ForEach(d => _context.Points.Remove(d));
+                _context.SaveChangesAsync();
+                _context.Routes.Remove(_context.Routes.Where(t => t.Id == routeId).First());
             }
             catch (Exception ex)
             {
@@ -44,7 +75,7 @@ namespace TourGuide.Models
         {
             try
             {
-                var result = _context.Points.ToList();
+                var result = _context.Points.OrderBy(x => x.OrdNumber).ToList();
                 return result;
             }
             catch(Exception)
@@ -108,6 +139,18 @@ namespace TourGuide.Models
             }
         }
 
+        public IEnumerable<Route> GetUserRoutesWithPoints(string name)
+        {
+            try
+            {
+                return _context.Routes.Where(t => t.UserName == name).Include(t => t.Points).ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public async System.Threading.Tasks.Task<bool> SaveAll()
         {
             try
@@ -116,11 +159,30 @@ namespace TourGuide.Models
                 if (x > 0) return true;
                 else return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }
         }
 
+        public bool SwapPoints(int id1, int id2)
+        {
+            try
+            {
+                var Point1 = _context.Points.Where(t => t.Id == id1).First();
+                var Point2 = _context.Points.Where(t => t.Id == id2).First();
+
+                var temp = Point1.OrdNumber;
+
+                Point1.OrdNumber = Point2.OrdNumber;
+                Point2.OrdNumber = temp;
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

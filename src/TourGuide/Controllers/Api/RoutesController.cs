@@ -6,11 +6,13 @@ using Microsoft.AspNet.Mvc;
 using TourGuide.Models;
 using System.Net;
 using AutoMapper;
+using Microsoft.AspNet.Authorization;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TourGuide.Controllers.Api
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class RoutesController : Controller
     {
@@ -25,7 +27,8 @@ namespace TourGuide.Controllers.Api
         [HttpGet]
         public JsonResult Get()
         {
-            var result = Mapper.Map<IEnumerable<RouteViewModel>>(_repository.GetAllRoutesWithPoints());
+            var routes = _repository.GetUserRoutesWithPoints(User.Identity.Name);
+            var result = Mapper.Map<IEnumerable<RouteViewModel>>(routes);
             return Json(result);
         }
 
@@ -42,10 +45,14 @@ namespace TourGuide.Controllers.Api
         {
             try
             {
-                var newRoute = Mapper.Map<Route>(vm);
+                
                 if (ModelState.IsValid)
                 {
-                    //Save to database
+                    var newRoute = Mapper.Map<Route>(vm);
+
+                    newRoute.UserName = User.Identity.Name;
+                    
+                     //Save to database
                     _repository.Add(newRoute);
                     if (await _repository.SaveAll())
                     {
@@ -82,9 +89,28 @@ namespace TourGuide.Controllers.Api
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{routeId}")]
+        public async Task<JsonResult> Delete(int routeId)
         {
+            try
+            {
+                _repository.DeleteRoute(routeId);
+                if (await _repository.SaveAll())
+                {
+                    Response.StatusCode = (int)HttpStatusCode.Created;
+                    return Json("Point have been deleted succesfully");
+                }
+                else
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json("Point haven't been deleted");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Route haven't been deleted: " + ex.Message);
+            }
         }
 
     }

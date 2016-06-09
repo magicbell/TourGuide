@@ -11,7 +11,8 @@
     "underscore": "~1.8.3",
     "jquery-validation": "~1.14.0",
     "jquery-validation-unobtrusive": "~3.2.5",
-    "font-awesome": "4.5.0"
+    "font-awesome": "4.5.0",
+    "travelmap": "~1.0.2"
   },
   "resolutions": {
     "angular": "~1.4.8"

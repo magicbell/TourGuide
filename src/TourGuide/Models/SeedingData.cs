@@ -37,7 +37,7 @@ namespace TourGuide.Models
                 {
                     Name = "Dundalk-Dublin",
                     Created = DateTime.Now,
-                    UserId = 1,
+                    UserName = "magicbell",
                     Description = "Trip from Dundalk to Dublin, Ireland",
                     StartDate = DateTime.Parse("01-01-2016"),
                     EndTime = DateTime.Parse("01-01-2016"),
@@ -49,7 +49,8 @@ namespace TourGuide.Models
                             Longitude = -6.405957,
                             Latitude = 53.9979451,
                             Description = "Dundalk, Co Louth, Ireland",
-                            Arrival = DateTime.Parse("01-01-2016 09:00")
+                            Arrival = DateTime.Parse("01-01-2016 09:00"),
+                            OrdNumber = 0
                         },
                         new Point()
                         {
@@ -58,7 +59,8 @@ namespace TourGuide.Models
                             Longitude = -6.3560985,
                             Latitude = 53.717856,
                             Description = "Drogheda, Co Louth, Ireland",
-                            Arrival = DateTime.Parse("01-01-2016 09:00")
+                            Arrival = DateTime.Parse("01-01-2016 09:00"),
+                            OrdNumber = 1
                         },
                         new Point()
                         {
@@ -67,7 +69,8 @@ namespace TourGuide.Models
                             Longitude = -6.2674937,
                             Latitude = 53.344104,
                             Description = "Dublin, the capital of Ireland",
-                            Arrival = DateTime.Parse("01-01-2016 09:00")
+                            Arrival = DateTime.Parse("01-01-2016 09:00"),
+                            OrdNumber = 2
                         }
                     }
                 };

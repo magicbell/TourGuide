@@ -32,8 +32,7 @@ namespace TourGuide.Controllers
         [Authorize]
         public IActionResult Routes()
         {
-            var routes = _repository.GetAllRoutesWithPoints();
-            return View(routes);
+            return View();
         }
 
         public IActionResult Contact()

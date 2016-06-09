@@ -15,5 +15,6 @@ namespace ViewModels
         public double Latitude { get; set; }
         public string Description { get; set; }
         public DateTime Arrival { get; set; }
+        public int OrdNumber { get; set; }
     }
 }
